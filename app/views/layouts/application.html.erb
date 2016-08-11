@@ -6,9 +6,55 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
 
+  </head>
   <body>
-    <%= yield %>
+  <div>
+    <header>
+        <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">About Ilya <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Routes</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pictures <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Australia</a></li>
+                        <li><a href="#">Japan</a></li>
+                        <li><a href="#">Thailand</a></li>
+                        <li><a href="#">Myanmar</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Contact</a></li>
+                <li> <%= link_to "Find Me", findme_path %></li>
+
+
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Link</a></li>
+                <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+                </li>
+            </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+        </nav>
+    </header>
+    </div>
+        <%= yield %>
+   <div class="container">
+     <p>© 2016 by Ilya Sorokin. All Rights Reserved.  All pictures and video are copyrighted and property of Ilya Sorokin. Please contact for licensing</p>
+   </div>
   </body>
 </html>
