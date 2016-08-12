@@ -13,3 +13,12 @@ html {
   text-decoration: none;
   background-color: #50560f;
 }
+
+.nav-pills {
+  width: 100%;
+  text-align: center;
+  > li {
+    float: none;
+    display: inline-block;
+  }
+}
