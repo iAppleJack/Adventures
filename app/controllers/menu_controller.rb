@@ -4,6 +4,10 @@ class MenuController < ApplicationController
 
   end
 
+  def images
+
+  end
+
   def findMe
 
   end
