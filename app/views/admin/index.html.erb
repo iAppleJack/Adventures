@@ -1,0 +1,42 @@
+
+<table class="table table-bordered">
+  <thead>
+  <tr>
+    <th>Название</th>
+    <th>Страна</th>
+    <th>Действия</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @travels.each do |travel| %>
+
+      <tr>
+        <td><%= travel.name %></td>
+        <td><%= travel.country %></td>
+
+        <td><%= image_tag  travel.img_url, :class => "img-circle", :height => 40 , :width => 40 %></td>
+        <td><%= button_to "Delete",  travel, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{travel.name}?" %></td>
+      </tr>
+
+  <% end %>
+  <tr>
+    <td>
+      <%= form_for @travel, html: { multipart: true } do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      <%= f.label :country %>
+      <%= f.text_field :country %>
+      <%= f.label :img %>
+      <%= f.file_field :img %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+      <% end %>
+
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  </tbody>
+</table>

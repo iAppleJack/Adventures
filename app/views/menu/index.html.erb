@@ -1,34 +1,3 @@
-<!--<div class="container">
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-      <li data-target="#myCarousel" data-slide-to="4"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-    <div class="item active">
-      <%#=image_tag("Inle.png", size: "1024x560", alt: "Edit Entry")%>
-    </div>
-    <div class="item">
-      <%#=image_tag("WaterFall.png", size: "1024x560", alt: "Edit Entry")%>
-    </div>
-    <div class="item">
-      <%#=image_tag("MotoFuji.png", size: "1024x560", alt: "Edit Entry")%>
-    </div>
-    <div class="item">
-      <%#=image_tag("Aus.png", size: "1024x560", alt: "Edit Entry")%>
-    </div>
-    <div class="item">
-      <%#=image_tag("Tiger.png", size: "1024x560", alt: "Edit Entry")%>
-    </div>
-  </div>
-</div>
-</div>
--->
-
-
 <div class="container">
   <div class="row">
     <div class="col-sm-8">
@@ -43,7 +12,7 @@
       </oi>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <%= image_tag("WaterFall.png", alt: "Edit Entry") %>
+          <%= image_tag "WaterFall.png", alt: "Edit Entry", :class => "img-rounded" %>
           <div class="carousel-caption">
             <h4>Tesuto</h4>
 
@@ -52,10 +21,10 @@
         </div>
 
         <div class="item">
-          <%= image_tag("MotoFuji.png", alt: "Edit Entry") %>
+          <%= image_tag "MotoFuji.png", alt: "Edit Entry",:class => "img-rounded"  %>
         </div>
         <div class="item">
-          <%= image_tag("Tiger.png", alt: "Edit Entry") %>
+          <%= image_tag "Tiger.png", alt: "Edit Entry",:class => "img-rounded"  %>
         </div>
       </div>
       <a class="carousel-control left" data-slide="prev" href="#indexCarousel"> &lsaquo; </a>
