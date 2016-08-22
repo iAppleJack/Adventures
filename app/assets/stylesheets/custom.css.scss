@@ -92,7 +92,7 @@ html {
 .splash {
   /* ќтступ до содержимого splash */
   padding:9em 0 2em;
-  background-image:  url(/assets/bg.jpg);;
+  background-image:  image-url("bg.jpg");
   /*ћасштабирует изображение с сохранением пропорций так, чтобы его ширина или высота равн€лась ширине или высоте блока.*/
   background-size:cover;
   /*—войство background-attachment устанавливает, будет ли прокручиватьс€ фоновое изображение вместе с содержимым элемента.ƒелает фоновое изображение элемента неподвижным. */
@@ -108,7 +108,7 @@ article {
   padding: 4em 0 3em;
   border-bottom: 1px solid rgba(0,0,0,0.05);
   background-color: rgba(160, 217, 235, 1.0);
-  background-image:  url(/assets/bg2.jpg);;
+  background-image:  image-url("bg2.jpg");
 
 }
 .navbar .navbar-nav {
