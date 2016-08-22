@@ -4,32 +4,24 @@
     </div>
 <% end %>
 
-<br />
 
-<%= link_to "New Resume", travels_new_path, class: "btn btn-primary" %>
-    <br />
-    <br />
 
-    <table class = "table table-bordered table-striped">
-      <thead>.
-      <tr>
-        <th>Name</th>
-        <th>Country</th>
-        <th> Image</th>
-      </tr>
-      </thead>
 
-      <tbody>
-      <% @travels.each do |travel| %>
+    <div class="container">
+      <div class="col-xs-12">
 
-          <tr>
-            <td><%= travel.name %>
-            <%= travel.country %>
+        <%= link_to "New Travel", travels_new_path, class: "btn btn-primary" %>
+      </div>
 
-            <%= image_tag  travel.img_url , :width => 320 , :height => 240 %></td>
-      </tr>
+    <% @travels.each do |travel| %>
+          <div class="col-xs-4">
+            <div class="travel">
+              <%= image_tag  travel.img_url , :width => 320 , :height => 240, :class => "img-thumbnail", :style => "width:320px;height:240px;" %>
+              <h2><span><%= travel.name + " / " + travel.country %></span></h2>
+            </div>
+          </div>
 
-              <% end %>
-    </tbody>
+    <% end %>
 
-              </table>
+    </div>
+

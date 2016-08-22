@@ -1,3 +1,19 @@
 // Place all the styles related to the Travels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.travel {
+  position: relative;
+  width: 100%; /* для IE 6 */
+}
+
+h2 {
+  position: absolute;
+  top: 75%;
+  left: 0;
+  width: 100%;
+}
+h2 span {
+  color: #fff;
+  font-size: 12px;
+  padding: 10px;
+}

@@ -1,57 +1,88 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Adventure</title>
-    <%= csrf_meta_tags %>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Меню</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  </head>
-  <body>
-  <div>
-    <header>
-        <nav class="navbar navbar-inverse" role="navigation">
-        <div class="container-fluid">
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav nav-pills ">
-              <li> <%= link_to "About Ilya", root_path %></li>
-
-              <li><a href="#">Routes</a></li>
-
-
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Travels <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                      <%@travels = Travel.all%>
-                        <% @travels.each do |travel|%>
-                            <li><a><%= link_to travel.name, travel_path(travel) %></a></li>
-                        <%end%>
-                    </ul>
-                </li>
-                <li><a href="#">Videos</a></li>
-                <li><a href="#">Contact</a></li>
-                <li> <%= link_to "Find Me", findme_path %></li>
-                <li> <%= link_to "Admin", admin_path %></li>
-
-              <% if current_user%>
-                    <li> Signed in as: <%= current_user.name %> - <%= image_tag( @auth['info']['image'], width: '40', height: '40')%></li>
-                    <li><%= link_to "Sign Out" , 'sign_out', method: :delete %></li>
-                <% else %>
-                    <li><%= link_to "auth/facebook" do %> <%= image_tag('facebook.png', width: '40', height: '40')%><%end%></li>
-                    <li><%= link_to "auth/github" do %> <%= image_tag('github.png', width: '40', height: '40')%><%end%></li>
-                <% end %>
-            </ul>
-            </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-        </nav>
-    </header>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-main">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
-        <%= yield %>
-   <div class="container">
-     <p>© 2016 by Ilya Sorokin. All Rights Reserved.  All pictures and video are copyrighted and property of Ilya Sorokin. Please contact for licensing</p>
-   </div>
-  </body>
+
+    <div class="collapse navbar-collapse" id="navbar-main">
+      <ul class="nav navbar-nav navbar-center">
+        <li> <%= link_to "About Ilya", root_path %></li>
+        <li> <%= link_to "Travels", travels_index_url %></li>
+
+        <!--<li><a href="#">Routes</a></li>
+        <li><a href="#">Videos</a></li>
+        <li><a href="#">Contact</a></li> -->
+
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Pictures<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <%@travels = Travel.all%>
+            <% @travels.each do |travel|%>
+                <li><a><%= link_to travel.name, travel_path(travel) %></a></li>
+            <%end%>
+          </ul>
+        </li>
+        <li> <%= link_to "Find Me", findme_path %></li>
+        <%if current_user%>
+            <li> <%= link_to "Admin", admin_path %></li>
+        <%end%>
+      </ul>
+
+
+
+
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if current_user%>
+            <li><%= link_to "#{image_tag(@auth['info']['image'], width: '20', height: '20')}".html_safe  + current_user.name, root_path %></li>
+            <li><%= link_to  " Sign Out" , 'sign_out', method: :delete %></li>
+        <% else %>
+            <li><%= link_to "auth/facebook" do %> <%= image_tag('facebook.png', width: '20', height: '20')%><%end%></li>
+            <li><%= link_to "auth/github" do %> <%= image_tag('github.png', width: '20', height: '20')%><%end%></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="splash" style="background-position: 0px 0px;">
+  <div class="container">
+
+    <h1>Здравствуйте・Hello・こんにちは</h1>
+    <p>My name is Ilya, I'm from Russia, I like photo, travel and motorcycles! :) </p>
+
+    <p>私の名前は　イリア、　ロシア　から　来ました、写真　や　バイク　や　旅行　が　大好きです　日本語を　勉強しています</p>
+
+
+  </div>
+</div>
+
+
+<article>
+  <div class="article container">
+     <%= yield%>
+  </div>
+</article>
+</body>
 </html>

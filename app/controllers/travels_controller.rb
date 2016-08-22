@@ -1,4 +1,6 @@
 class TravelsController < ApplicationController
+  before_action   :set_auth
+
   def index
     @travels = Travel.all
   end
